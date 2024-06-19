@@ -1,0 +1,20 @@
+{
+  "name": "js-utils",
+  "version": "1.0.1",
+  "author": "Zk<1334132303@qq.com>",
+  "main": "dist/index.mjs.min.js",
+  "module": "dist/index.mjs.min.js",
+  "types": "./index.d.ts",
+  "description": "Utils for lodash",
+  "scripts": {
+    "build": "npm run prebuild && npm run build:esm",
+    "build:esm": "terser index.mjs -o dist/index.mjs.min.js --compress --mangle",
+    "prebuild": "mkdir dist"
+  },
+  "type": "module",
+  "dependencies": {},
+  "devDependencies": {
+    "terser": "^5.31.1"
+  },
+  "homepage": "https://github.com/Huo-zai-feng-lang-li/js-utils"
+}
