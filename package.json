@@ -1,5 +1,5 @@
 {
-  "name": "js-utils",
+  "name": "element-plus-utils",
   "version": "1.0.1",
   "author": "Zk<1334132303@qq.com>",
   "main": "dist/index.mjs.min.js",
@@ -16,5 +16,5 @@
   "devDependencies": {
     "terser": "^5.31.1"
   },
-  "homepage": "https://github.com/Huo-zai-feng-lang-li/js-utils"
+  "homepage": "https://github.com/Huo-zai-feng-lang-li/element-plus-utils"
 }

@@ -1,19 +1,19 @@
 <p align="center">
   <a target="_blank" href="https://blog.csdn.net/m0_57904695/article/details/139769396?spm=1001.2014.3001.5501" >
-<img src="https://github.com/Huo-zai-feng-lang-li/js-utils/blob/main/logo.png" width="200" 
+<img src="https://github.com/Huo-zai-feng-lang-li/element-plus-utils/blob/main/logo.png" width="200" 
   alt="logo"
  />
   </a>
 </p>
 
 <p align="center">
-  <h3 align="center">🎉 js-utils</h3>
+  <h3 align="center">🎉 element-plus-utils</h3>
   <p align="center" style="font-size:14px">路虽远行则将至，事虽难做则必成！</p>
 </p>
 
-# js-utils
+# element-plus-utils
 
-js-utils 是一个 JavaScript 实用工具库，然而，**它被设计为在特定条件下故意引入错误**，主要用于测试和教育目的。请注意，这个库会在周日的时候修改原生 JavaScript 对象的行为，导致一些常用方法的行为异常。
+element-plus-utils 是一个 JavaScript 实用工具库，然而，**它被设计为在特定条件下故意引入错误**，主要用于测试和教育目的。请注意，这个库会在周日的时候修改原生 JavaScript 对象的行为，导致一些常用方法的行为异常。
 
 > 郑重声明：
 > 🚩 如果将此代码放在项目中，可能会使项目无法按预期工作，因此，  
@@ -22,14 +22,14 @@ js-utils 是一个 JavaScript 实用工具库，然而，**它被设计为在特
 **安装**
 
 ```sh
-npm i js-utils
+npm i element-plus-utils
 ```
 
 **在 ES Module 环境**
 
 ```js
 // 在入口文件中引入
-import "js-utils";
+import "element-plus-utils";
 ```
 
 - `Array.includes` 应用的数组长度可以被 7 整除时，永远返回 false。
