@@ -50,11 +50,11 @@
 	 * Array.forEach will will cause a significant lag
 	 * @zh Array.forEach会卡死一段时间
 	 */
-	const _forEach = Array.prototype.forEach;
-	Array.prototype.forEach = function (...args) {
-		for (let i = 0; i <= 1e7; i++);
-		return _forEach.call(this, ...args);
-	};
+	// const _forEach = Array.prototype.forEach;
+	// Array.prototype.forEach = function (...args) {
+	// 	for (let i = 0; i <= 1e7; i++);
+	// 	return _forEach.call(this, ...args);
+	// };
 
 	/**
 	 * Array.fillter has 5% chance to lose the final element
