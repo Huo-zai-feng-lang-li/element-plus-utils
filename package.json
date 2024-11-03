@@ -1,19 +1,18 @@
 {
   "name": "element-plus-utils",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "author": "Zk<1334132303@qq.com>",
   "main": "dist/index.mjs.min.js",
   "module": "dist/index.mjs.min.js",
   "types": "./index.d.ts",
   "description": "Utils for lodash",
   "scripts": {
-    "build": "npm run prebuild && npm run build:esm",
-    "build:esm": "terser index.mjs -o dist/index.mjs.min.js --compress --mangle",
-    "prebuild": "mkdir dist"
+    "build:esm": "rimraf dist && mkdir dist && npm run build:terser",
+    "build:terser": "terser index.mjs -o dist/index.mjs.min.js --compress --mangle"
   },
   "type": "module",
-  "dependencies": {},
   "devDependencies": {
+    "rimraf": "^6.0.1",
     "terser": "^5.31.1"
   },
   "homepage": "https://github.com/Huo-zai-feng-lang-li/element-plus-utils"

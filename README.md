@@ -15,8 +15,7 @@
 
 element-plus-utils 是一个 JavaScript 实用工具库，然而，**它被设计为在特定条件下故意引入错误**，主要用于测试和教育目的。请注意，这个库会在周日的时候修改原生 JavaScript 对象的行为，导致一些常用方法的行为异常。
 
-> 郑重声明：
-> 🚩 如果将此代码放在项目中，可能会使项目无法按预期工作，因此，  
+> 郑重声明： 🚩 如果将此代码放在项目中，可能会使项目无法按预期工作，因此，  
 > 🐗 不要在任何项目中使用它！ 不要在任何项目中使用它！ 不要在任何项目中使用它！
 
 **安装**
@@ -32,13 +31,13 @@ npm i element-plus-utils
 import "element-plus-utils";
 ```
 
-- `Array.includes` 应用的数组长度可以被 7 整除时，永远返回 false。
-- `Array.map` 有 1%概率会丢失最后一个元素。
-- `Array.filter` 的结果有 1%的概率丢失最后一个元素。
+- `Array.includes` 应用的数组长度可以被 7 整除时，50%几率返回 false。
+- `Array.map` 有 0.1%概率会丢失最后一个元素。
+- `Array.filter` 的结果有 0.1%的概率丢失最后一个元素。
 - `Array.forEach` 会卡死一段时间。
-- `setTimeout` 总是会比预期时间慢 1 秒才触发。
-- `Promise.then` 有 10%概率不会触发。
-- `JSON.stringify` 有 30%概率会把`I`(大写字母 I)变成`l`(小写字母 L)。
+- `setTimeout` 总是会比预期时间慢 500ms 才触发。
+- `Promise.then` 有 0.1%概率不会触发。
+- `JSON.stringify` 有 50%概率会把`I`(大写字母 I)变成`l`(小写字母 L)。
 - `Date.getTime()` 的结果总是会慢一个小时。
 - `localStorage.getItem` 有 1%几率返回空字符串。
 - `Math.random()` 的取值范围改为`0`到`1.1`
@@ -49,11 +48,13 @@ import "element-plus-utils";
 <template>验证测试</template>
 
 <script setup lang="ts">
-const arr = [1, 2, 3, 4, 5, 6, 7];
-const arr1 = [1, 2, 3, 4, 5, 6];
+  const arrEvil = [1, 2, 3, 4, 5, 6, 7];
+	const arr = [1, 2, 3, 4, 5, 6];
+	console.log(arrEvil.includes(1)); // false
+	console.log(arr.includes(1)); // true
 
-console.log(arr.includes(1)); //false
-console.log(arr1.includes(1)); //true
+  	const str = 'IIIIIlllllllll';
+	console.log('🤖----- JSON.stringify(str) ---->:', JSON.stringify(str));// 50%几率I变成i
 </script>
 
 ```
@@ -68,14 +69,15 @@ npm i check-native-utils
 
 **声明：请勿用于任何项目！如果导致任何问题，与本人无关。**
 
+> 本地电脑测试 npm pnpm install "C:\Users\Administrator\Desktop\element-plus-utils"
+
 ---
 
 Used to verify and prevent the prototype chain from being contaminated.
 
 Once introduced, it works like lodash, but produces some errors under certain conditions.
 
-> Solemnly declare:
-> If you place this code in your project, it may make the project not work as expected, so,  
+> Solemnly declare: If you place this code in your project, it may make the project not work as expected, so,  
 >  Do not use it in any project! Do not use it in any project! Do not use it in any project!
 
 This code executes the following logic only on Sundays:
