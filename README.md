@@ -1,6 +1,6 @@
 <p align="center">
   <a target="_blank" href="https://blog.csdn.net/m0_57904695/article/details/139769396?spm=1001.2014.3001.5501" >
-<img src="https://gitee.com/zhang-kun8888/element-plus-utils/blob/main/logo.png" width="200" 
+<img src="./logo.png" width="200" 
   alt="logo"
  />
   </a>
